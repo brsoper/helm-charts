@@ -1,0 +1,46 @@
+name: Release Helm Chart
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [trigger-helm-release]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: latest
+
+      - name: Clone Private Helm Chart Repository
+        run: |
+          git clone https://github.com/brsoper/test-metrics.git metrics-chart
+
+      - name: Ignore metrics-chart from Git tracking
+        run: |
+          echo "metrics-chart/" > .gitignore
+          git rm -r --cached metrics-chart || true
+
+      - name: Package Helm Chart
+        run: |
+          cd metrics-chart/chart/consumption-report
+          helm package .
+          mv consumption-report* ../../../metrics/
+          cd ..
+
+      - name: Update Helm Repo Index
+        run: |
+          git config --global user.email "brad.soper@run.ai"
+          git config --global user.name "Brad Soper"
+          helm repo index --url https://runai-professional-services.github.io/helm-charts/metrics --merge index.yaml --merge index.yaml .
+          git add .
+          git commit -m "Update Helm chart index"
+          git push origin main
