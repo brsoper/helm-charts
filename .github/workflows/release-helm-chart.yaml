@@ -18,6 +18,7 @@ jobs:
 
       - name: Clone Private Helm Chart Repository
         run: |
+          ls -ltrah
           git clone https://github.com/brsoper/test-metrics.git metrics-chart
 
       - name: Ignore metrics-chart from Git tracking
@@ -31,6 +32,7 @@ jobs:
           helm package .
           mv test-chart* ../../../docs/
           cd $(git rev-parse --show-toplevel)
+          ls -ltrah
           cd ./docs
 
       - name: Update Helm Repo Index
