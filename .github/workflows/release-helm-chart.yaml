@@ -26,13 +26,13 @@ jobs:
 
       - name: Ignore metrics-chart from Git tracking
         run: |
-          cd metrics-chart
+          ls -ltrah
           echo "metrics-chart/" > .gitignore
           git rm -r --cached metrics-chart || true
 
       - name: Package Helm Chart
         run: |
-          cd charts/test-chart
+          cd metrics-chart/charts/test-chart
           helm package .
           mv test-chart* ../../../docs/
           cd $(git rev-parse --show-toplevel)
