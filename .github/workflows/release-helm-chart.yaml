@@ -4,6 +4,9 @@ on:
   repository_dispatch:
     types: [trigger-helm-release]
 
+permissions:
+  contents: write
+
 jobs:
   trigger:
     runs-on: ubuntu-latest
@@ -23,6 +26,7 @@ jobs:
 
       - name: Ignore metrics-chart from Git tracking
         run: |
+          cd metrics-chart
           echo "metrics-chart/" > .gitignore
           git rm -r --cached metrics-chart || true
 
