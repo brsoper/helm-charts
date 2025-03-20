@@ -33,6 +33,8 @@ jobs:
           mv test-chart* ../../../docs/
           cd $(git rev-parse --show-toplevel)
           ls -ltrah
+          cd ../
+          pwd
           cd ./docs
 
       - name: Update Helm Repo Index
