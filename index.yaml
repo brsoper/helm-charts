@@ -3,7 +3,7 @@ entries:
   test-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-03-20T17:32:04.587661277Z"
+    created: "2025-03-20T18:29:32.920692556Z"
     description: A Helm chart for Kubernetes
     digest: 0dcbdb6784ff219b18396dd83c10f2912f27ffb325e5e61e47ef23acf76c5896
     name: test-chart
@@ -13,7 +13,17 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-03-20T17:32:04.587246885Z"
+    created: "2025-03-20T18:29:32.919877696Z"
+    description: A Helm chart for Kubernetes
+    digest: 294f03eac1c066e70042f75e9cfafb4832a0f27efac555b6ea2fadb9c60e8ac9
+    name: test-chart
+    type: application
+    urls:
+    - https://runai-professional-services.github.io/helm-charts/metrics/docs/test-chart-0.0.10.tgz
+    version: 0.0.10
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-20T18:29:32.920288437Z"
     description: A Helm chart for Kubernetes
     digest: 1f62a17db9f61f88bc310dd5bfe35a68e860a12ea61e206b3289868c372a2660
     name: test-chart
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://runai-professional-services.github.io/helm-charts/metrics/docs/test-chart-0.0.8.tgz
     version: 0.0.8
-generated: "2025-03-20T17:32:04.586679468Z"
+generated: "2025-03-20T18:29:32.919270577Z"
