@@ -32,7 +32,7 @@ jobs:
 
       - name: Package Helm Chart
         run: |
-          cd metrics-chart/charts/test-chart
+          cd charts/test-chart
           helm package .
           mv test-chart* ../../../docs/
           cd $(git rev-parse --show-toplevel)
